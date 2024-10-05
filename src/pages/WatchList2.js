@@ -27,7 +27,7 @@ const WatchList1 = () => {
 
   const fetchStocks = async () => {
     try {
-      const response = await axios.get('https://leveragex.in/api/watchlist2');
+      const response = await axios.get('https://leverage-x-backend-1.onrender.com/api/watchlist2');
       setStocks(response.data);
     } catch (error) {
       console.error('Error fetching WatchList2 stocks:', error);
@@ -38,7 +38,7 @@ const WatchList1 = () => {
     if (!userId) return;
 
     try {
-      const response = await axios.get(`https://leveragex.in/api/users/balance/${userId}`);
+      const response = await axios.get(`https://leverage-x-backend-1.onrender.com/api/users/balance/${userId}`);
       setCurrentBalance(response.data.balance);
       setUpdatedBalance(response.data.balance);
     } catch (error) {
@@ -81,7 +81,7 @@ const WatchList1 = () => {
     }
 
     try {
-      const response = await axios.post('https://leveragex.in/api/watchlist2/buy', {
+      const response = await axios.post('https://leverage-x-backend-1.onrender.com/api/watchlist2/buy', {
         stockName: selectedOption.name,
         userId: userId,
         quantity: quantity

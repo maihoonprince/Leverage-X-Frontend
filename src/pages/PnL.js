@@ -19,7 +19,7 @@ const PnL = () => {
 
   const fetchUserStocks = async () => {
     try {
-      const response = await axios.get(`https://leveragex.in/api/users/stocks/${userId}`);
+      const response = await axios.get(`https://leverage-x-backend-1.onrender.com/api/users/stocks/${userId}`);
       setStocks(response.data.stocks);
       setUserBalance(response.data.balance);
     } catch (error) {
@@ -32,7 +32,7 @@ const PnL = () => {
     try {
       const storedWatchlistType = localStorage.getItem('watchlistType');
       const watchlistType = storedWatchlistType || location.state?.watchlistType || '1'; // Default to WatchList1 if none is found
-      const response = await axios.get(`https://leveragex.in/api/watchlist${watchlistType}`);
+      const response = await axios.get(`https://leverage-x-backend-1.onrender.com/api/watchlist${watchlistType}`);
       setUpdatedStocks(response.data);
     } catch (error) {
       console.error('Error fetching real-time prices:', error);
@@ -55,7 +55,7 @@ const PnL = () => {
   const handleSell = async (stockName, quantity, autoSell = false) => {
     try {
       const watchlistType = location.state?.watchlistType || localStorage.getItem('watchlistType') || '1';
-      const response = await axios.post('https://leveragex.in/api/users/sell', {
+      const response = await axios.post('https://leverage-x-backend-1.onrender.com/api/users/sell', {
         userId,
         stockName,
         quantity,
