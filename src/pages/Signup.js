@@ -32,7 +32,7 @@ function Signup() {
             return handleError('All fields are required');
         }
         try {
-            const url = `https://leverage-x-backend-1.onrender.com/auth/signup`;
+            const url = `https://leveragex.in/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

@@ -30,7 +30,7 @@ function Login() {
         }
         try {
             // const url = `https://deploy-mern-app-1-api.vercel.app/auth/login`;
-            const url = `https://leverage-x-backend-1.onrender.com/auth/login`;
+            const url = `https://leveragex.in/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
