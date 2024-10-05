@@ -21,14 +21,20 @@ h2 {
   margin-bottom: 25px;
 }
 
-h3, h4 {
+h3 , h4{
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 10px;
 }
+/* .color{
+  color: #555;
+} */
 
-/* Portfolio Section */
+
+
+/* Portfoliolinear-gd{
+Section */
 .portfolio {
   display: flex;
   flex-direction: column;
@@ -131,7 +137,7 @@ h3, h4 {
 }
 
 .popup {
-  background-color: #333;
+  background-color: #33333300;
   padding: 20px;
   border-radius: 10px;
   max-width: 400px;
@@ -148,7 +154,8 @@ h3, h4 {
 }
 
 .popup input {
-  width: 100%;
+  width: 80%;
+  height: 1.3%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -220,6 +227,7 @@ h3, h4 {
     font-size: 1.1rem;
     /* margin-bottom: 20px; */
   }
+
 
   .profit-loss {
     font-size: 2rem;

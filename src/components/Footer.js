@@ -11,7 +11,7 @@ const Footer = () => {
           {/* <Link to="/term"> Term  </Link> */}
           <a href="/term" >Terms & Conditions</a>
           <a href="/privacy">Privacy Policy</a>
-          <a href="/refund">Refund Policy</a>
+          <a >Refund Policy</a>
         </div>
       </footer>
   )
