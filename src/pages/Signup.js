@@ -9,7 +9,7 @@ import "../styles/Signup.css";
 function Signup() {
     const [signupInfo, setSignupInfo] = useState({
         fullName: '',
-        email: '',       // Added email field in the state
+        email: '',      
         mobile: '',
         aadhaar: '',
         pan: '',
@@ -17,6 +17,7 @@ function Signup() {
     });
 
     const navigate = useNavigate();
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setSignupInfo(prevState => ({
@@ -28,9 +29,12 @@ function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         const { fullName, email, mobile, aadhaar, pan, password } = signupInfo;
+
+        // Basic frontend validation
         if (!fullName || !email || !mobile || !aadhaar || !pan || !password) {
             return handleError('All fields are required');
         }
+
         try {
             const url = `https://leverage-x-backend-1.onrender.com/auth/signup`;
             const response = await fetch(url, {
@@ -40,21 +44,26 @@ function Signup() {
                 },
                 body: JSON.stringify(signupInfo)
             });
+
+            // Check for any non-200 response
+            if (!response.ok) {
+                const errorResponse = await response.json();
+                const errorMsg = errorResponse.error?.details[0]?.message || errorResponse.message;
+                return handleError(errorMsg);
+            }
+
             const result = await response.json();
-            const { success, message, error } = result;
+            const { success, message } = result;
             if (success) {
                 handleSuccess(message);
                 setTimeout(() => {
                     navigate('/login');
                 }, 1000);
-            } else if (error) {
-                const details = error?.details[0].message;
-                handleError(details);
             } else {
-                handleError(message);
+                handleError(result.message || "Something went wrong.");
             }
         } catch (err) {
-            handleError(err);
+            handleError("Internal Server Error. Please try again later.");
         }
     };
 
@@ -73,7 +82,7 @@ function Signup() {
                     />
                 </div>
                 <div className='input-data'>
-                    <label htmlFor='email'>Email</label>    {/* Added email input */}
+                    <label htmlFor='email'>Email</label>
                     <input
                         onChange={handleChange}
                         type='email'
