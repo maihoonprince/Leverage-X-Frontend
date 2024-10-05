@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/Home.css';
-// import Navbar from '../components/Navbar';
 import homeImage from "../Assets/home page.png";
 import featureImage from "../Assets/fetch page.png";
 import ProgramImage from "../Assets/home page2222.png"
