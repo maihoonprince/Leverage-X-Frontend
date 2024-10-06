@@ -4,6 +4,8 @@ import axios from 'axios';
 import TradingView from '../components/TradingView';
 import '../styles/WatchList.css';
 
+import { BsGraphUp } from "react-icons/bs";
+
 const WatchList1 = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -120,28 +122,66 @@ const WatchList1 = () => {
             <div key={index} className="option">
               <span>{option.name}</span>
               <span>₹{option.price.toFixed(2)}</span>
-              <button className='graph' onClick={() => handleGraph(option)}>Graph</button>
+
+              <button className='graph' onClick={() => handleGraph(option)}><BsGraphUp /></button>
+
               <button className="buy-btn" onClick={() => handleBuyClick(option)}>Buy</button>
             </div>
           ))}
         </div>
-        <div className="balance">
-          <span>Balance: ₹{currentBalance.toFixed(2)}</span>
+
+        <div className="balance-folder">
+        <div className="leverage-balance">
+          <div className="company1">
+            <h1 className="company-name">
+              Leverage <span>X</span>
+            </h1>
+            {/* <p className="forex-trade">Forex Trading Account</p> */}
+          </div>
+          <div className="balance">
+            <span>
+              Balance Amount <p>₹{currentBalance.toFixed(2)}</p>
+            </span>
+          </div>
         </div>
+        </div>
+
       </div>
 
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h3>Buy {selectedOption.name}</h3>
-            <p>Current Balance: ₹{currentBalance.toFixed(2)}</p>
-            <p>Quantity: {quantity}</p>
-            <p>Invested: ₹{investedAmount.toFixed(2)}</p>
-            <p>Updated Balance: ₹{updatedBalance.toFixed(2)}</p>
-            <button onClick={handleBuy} disabled={quantity === 0}>Confirm Purchase</button>
-            <button onClick={() => setShowPopup(false)}>Cancel</button>
-          </div>
+        <div className="buy-stocks">
+
+        <div className="selected-stocks">
+          <h3 className="stock-name">{selectedOption.name}</h3>
+          <p>Quantity: {quantity}</p>
         </div>
+
+
+        <div className="inv-update">
+
+          <div className="invested-bal">
+            <p>Invested</p>
+            <p>₹{investedAmount.toFixed(2)}</p>
+          </div>
+
+          <div className="balance-div">
+            <p>Balance</p>
+            <p>₹{updatedBalance.toFixed(2)}</p>
+          </div>
+
+        </div>
+
+
+        <div className="purchage-cancel">
+
+          <button onClick={handleBuy} disabled={quantity === 0}>
+            Confirm
+          </button>
+
+          <button onClick={() => setShowPopup(false)}>Cancel</button>
+        </div>
+
+      </div>
       )}
 
       {showGraph && (

@@ -8,7 +8,8 @@
 .sidebar {
   background-color: #0e0f12;
   color: white;
-  padding: 20px;
+  /* padding: 20px; */
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -19,8 +20,8 @@
   margin-bottom: 20px;
 }
 
-.currency-opt{
-  background: linear-gradient(to right,rgb(16, 174, 16), rgb(223, 223, 223));
+.currency-opt {
+  background: linear-gradient(to right, rgb(16, 174, 16), rgb(223, 223, 223));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-top: 9px;
@@ -30,7 +31,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  gap: 18px; 
+  gap: 18px;
 }
 
 .option {
@@ -49,7 +50,7 @@
   background-color: #444;
 }
 
-.graph{
+.graph {
   background-color: #b6303d;
 }
 
@@ -132,7 +133,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .company1 {
@@ -149,10 +150,9 @@
   font-style: italic;
 }
 
-.company-name span{
+.company-name span {
   color: #28b328;
   font-size: 22px;
-
 }
 
 .forex-trade {
@@ -164,12 +164,12 @@
 .balance {
   background-color: #333;
   border-radius: 8px;
-  padding: 15px 20px; /* Adjusted padding for better spacing */
+  padding: 15px 15px; /* Adjusted padding for better spacing */
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  /* position: relative; */
   min-height: 40px; /* To ensure minimum height */
 }
 
@@ -186,65 +186,161 @@
 }
 
 .balance::after {
-  content: '→';
-  position: absolute;
-  right: 20px;
+  content: "→";
+  /* position: absolute; */
+  right: 75px;
   font-size: 18px;
   color: white;
 }
 
+/* popup */
 
-
-.popup-overlay {
+/* .buy-stocks{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+  z-index: 1000;
+  background-color: #0056b3;
+  height: 60%;
+  width: 90%;
+  left: 4%;
+  top: 20%;
+} */
 
-.popup-content {
-  background-color: #2e24b4;
-  padding: 30px;
+.buy-stocks {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 50%;
+  background-color: #444545; /* Semi-transparent background */
+  display: flex;
   border-radius: 10px;
-  text-align: center;
-}
-
-/* Graph Component Styles */
-.graph-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
-  animation: slideIn 0.5s forwards;
+  z-index: 1000; /* Ensure it appears on top */
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+.selected-stocks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 25px;
+  background-color: #a2a3a7;
+  /* border: 1px solid #edeaea; */
+  border-radius: 10px;
+  color: #0e0f12;
+  padding: 10px 15px;
+
+  box-shadow: 1px 2px 5px 3px #d7dbd9a6;
+
 }
 
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
+.stock-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #161616;
+}
+
+.invested-bal{
   color: white;
-  font-size: 24px;
-  border: none;
-  cursor: pointer;
-  background-color: #b6303d;
+  margin-bottom: 35px;
 }
+
+.quant-bal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.quant-bal p {
+  font-size: 16px;
+  color: #666;
+}
+
+.inv-update {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 75px;
+  color: white;
+  border-top: 1px solid white;
+  padding-top: 15px;
+}
+
+.inv-update p {
+  font-size: 16px;
+  color: #f4f2f2;
+}
+
+.purchage-cancel {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.purchage-cancel button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.purchage-cancel button[disabled] {
+  background-color: #ccc;
+}
+
+.purchage-cancel button:last-child {
+  background-color: #ff4d4d;
+}
+
+.purchage-cancel button:hover:not([disabled]) {
+  background-color: #0056b3;
+}
+
+
+  /* Graph Component Styles */
+  .graph-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideIn 0.5s forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    background-color: #b6303d;
+  }

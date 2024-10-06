@@ -5,8 +5,8 @@
 
 .pnl-container {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 25px;
+  /* margin: 0 auto; */
+  margin-top: 100px;
   background-color: #000000;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(169, 254, 42, 0.1);
