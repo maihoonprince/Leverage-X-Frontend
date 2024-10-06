@@ -136,7 +136,7 @@ Section */
   z-index: 1000;
 }
 
-.popup {
+/* .popup {
   background-color: #33333300;
   padding: 20px;
   border-radius: 10px;
@@ -144,7 +144,7 @@ Section */
   width: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
-}
+} */
 
 .popup h3 {
   border:1px solid #fff;

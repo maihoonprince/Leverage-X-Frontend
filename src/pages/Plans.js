@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import "../styles/Plans.css";
 
 import qrcode from "../Assets/WhatsApp Image 2024-10-03 at 18.58.39_5c2012ec.jpg";
+import upiImg from "../Assets/upiImg.png";
 
 function Plans() {
     const [selectedPlan, setSelectedPlan] = useState(null);
@@ -91,10 +92,10 @@ function Plans() {
                         {['Rapid', 'Evolution', 'Prime'].map((plan, index) => (
                             <tr key={index}>
                                 <td>{plan}</td>
-                                <td>{plan === 'Rapid' ? '₹10,000' : plan === 'Evolution' ? '₹50,000' : '1,00,000'}</td>
+                                <td>{plan === 'Rapid' ? '₹10,000' : plan === 'Evolution' ? '₹50,000' : '₹1,00,000'}</td>
                                 <td>5 Days</td>
                                 <td>10X</td>
-                                <td>{plan === 'Rapid' ? '₹1,000' : plan === 'Evolution' ? '₹5,000' : '10,000'}</td>
+                                <td>{plan === 'Rapid' ? '₹1,000' : plan === 'Evolution' ? '₹5,000' : '₹10,000'}</td>
                                 <td>{plan === 'Rapid' ? 'One Time' : 'Unlimited'}</td>
                                 <td>
                                     <button
@@ -138,8 +139,8 @@ function Plans() {
                         <p className='qr-p'>Total: ₹ {selectedPlan === 'Rapid' ? '1000' : selectedPlan === 'Evolution' ? '5000' : '10,000'} /-</p>
                         <p className='pay-here'>Pay Here</p>
                         <img src={qrcode} alt="QR Code" className="qr-image" />
-                        <p className='qr-p'> Or</p>
                         <p className='qr-p qr-pq'>leveragexfund@okhdfcbank</p>
+                        <img src={upiImg} alt="upi-logo" className='upi-img' />
                         <input placeholder='Enter Phone No.' type="number" className="input-num" required />
                         <div className="popup-actions">
                             <button className="done-btn done-bttn" onClick={handlePayment}>Done</button>

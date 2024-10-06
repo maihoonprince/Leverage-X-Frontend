@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import TradingView from '../components/TradingView';
-import '../styles/WatchList.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import TradingView from "../components/TradingView";
+import "../styles/WatchList.css";
 
 const WatchList1 = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -14,23 +14,25 @@ const WatchList1 = () => {
   const [stocks, setStocks] = useState([]);
   const [showGraph, setShowGraph] = useState(false); // State to show TradingView
   const [selectedStockForGraph, setSelectedStockForGraph] = useState(null); // Selected stock for graph
-  
+
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     if (!userId) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [userId, navigate]);
 
   const fetchStocks = async () => {
     try {
-      const response = await axios.get('https://leverage-x-backend-1.onrender.com/api/watchlist2');
+      const response = await axios.get(
+        "https://leverage-x-backend-1.onrender.com/api/watchlist2"
+      );
       setStocks(response.data);
     } catch (error) {
-      console.error('Error fetching WatchList2 stocks:', error);
+      console.error("Error fetching WatchList2 stocks:", error);
     }
   };
 
@@ -38,11 +40,13 @@ const WatchList1 = () => {
     if (!userId) return;
 
     try {
-      const response = await axios.get(`https://leverage-x-backend-1.onrender.com/api/users/balance/${userId}`);
+      const response = await axios.get(
+        `https://leverage-x-backend-1.onrender.com/api/users/balance/${userId}`
+      );
       setCurrentBalance(response.data.balance);
       setUpdatedBalance(response.data.balance);
     } catch (error) {
-      console.error('Error fetching user balance:', error);
+      console.error("Error fetching user balance:", error);
     }
   };
 
@@ -52,7 +56,7 @@ const WatchList1 = () => {
     const interval = setInterval(() => {
       fetchStocks(); // Fetch updated WatchList1 stock prices
     }, 1000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
@@ -61,7 +65,7 @@ const WatchList1 = () => {
     setSelectedOption(option);
     setQuantity(maxQuantity);
     setInvestedAmount(option.price * maxQuantity);
-    setUpdatedBalance(currentBalance - (option.price * maxQuantity));
+    setUpdatedBalance(currentBalance - option.price * maxQuantity);
     setShowPopup(true);
   };
 
@@ -81,53 +85,77 @@ const WatchList1 = () => {
     }
 
     try {
-      const response = await axios.post('https://leverage-x-backend-1.onrender.com/api/watchlist2/buy', {
-        stockName: selectedOption.name,
-        userId: userId,
-        quantity: quantity
-      });
+      const response = await axios.post(
+        "https://leverage-x-backend-1.onrender.com/api/watchlist2/buy",
+        {
+          stockName: selectedOption.name,
+          userId: userId,
+          quantity: quantity,
+        }
+      );
 
       if (response.status === 200) {
         setCurrentBalance(response.data.updatedBalance);
         setUpdatedBalance(response.data.updatedBalance);
         setShowPopup(false);
 
-        localStorage.setItem('watchlistType', '2');
+        localStorage.setItem("watchlistType", "2");
 
-        navigate('/pnl', {
+        navigate("/pnl", {
           state: {
-            watchlistType: '2',  // Flag for WatchList1
+            watchlistType: "2", // Flag for WatchList1
             selectedOption,
             quantity,
             investedAmount,
             updatedBalance: response.data.updatedBalance,
-          }
+          },
         });
       } else {
-        alert('Error purchasing stock.');
+        alert("Error purchasing stock.");
       }
     } catch (error) {
-      console.error('Error buying stock:', error);
+      console.error("Error buying stock:", error);
     }
   };
 
   return (
     <div className="watchlist-container">
       <div className="sidebar">
-        <h2 className='currency-opt'>Currency Options</h2>
+        <h2 className="currency-opt">Currency Options</h2>
         <div className="options">
           {stocks.map((option, index) => (
             <div key={index} className="option">
               <span>{option.name}</span>
               <span>₹{option.price.toFixed(2)}</span>
-              <button className='graph' onClick={() => handleGraph(option)}>Graph</button>
-              <button className="buy-btn" onClick={() => handleBuyClick(option)}>Buy</button>
+              <button className="graph" onClick={() => handleGraph(option)}>
+                Graph
+              </button>
+              <button
+                className="buy-btn"
+                onClick={() => handleBuyClick(option)}
+              >
+                Buy
+              </button>
             </div>
           ))}
         </div>
-        <div className="balance">
-          <span>Balance: ₹{currentBalance.toFixed(2)}</span>
+
+        <div className="balance-folder">
+        <div className="leverage-balance">
+          <div className="company1">
+            <h1 className="company-name">
+              Leverage <span>X</span>
+            </h1>
+            {/* <p className="forex-trade">Forex Trading Account</p> */}
+          </div>
+          <div className="balance">
+            <span>
+              Balance Amount <p>₹{currentBalance.toFixed(2)}</p>
+            </span>
+          </div>
         </div>
+        </div>
+
       </div>
 
       {showPopup && (
@@ -138,7 +166,9 @@ const WatchList1 = () => {
             <p>Quantity: {quantity}</p>
             <p>Invested: ₹{investedAmount.toFixed(2)}</p>
             <p>Updated Balance: ₹{updatedBalance.toFixed(2)}</p>
-            <button onClick={handleBuy} disabled={quantity === 0}>Confirm Purchase</button>
+            <button onClick={handleBuy} disabled={quantity === 0}>
+              Confirm Purchase
+            </button>
             <button onClick={() => setShowPopup(false)}>Cancel</button>
           </div>
         </div>
@@ -146,11 +176,12 @@ const WatchList1 = () => {
 
       {showGraph && (
         <div className="graph-container">
-          <button className="close-btn" onClick={handleCloseGraph}>✖</button>
+          <button className="close-btn" onClick={handleCloseGraph}>
+            ✖
+          </button>
           <TradingView stock={selectedStockForGraph} />
         </div>
       )}
-
     </div>
   );
 };

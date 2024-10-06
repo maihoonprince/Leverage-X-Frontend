@@ -217,8 +217,13 @@ body {
 }
 
 .amt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 10px;
-    width: 100%;
+    width: 80%;
     max-width: 300px;
     padding: 0 30px;
     margin-bottom: 20px;
@@ -361,6 +366,10 @@ body {
         background: linear-gradient(to right, rgb(16, 174, 16), rgb(223, 223, 223));
         background-clip: text;
         -webkit-text-fill-color: transparent
+    }
+
+    .section-plan{
+        padding-right: 10px;
     }
 
 }

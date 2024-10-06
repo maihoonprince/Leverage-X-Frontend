@@ -4,11 +4,15 @@ nav {
     overflow: hidden;
     top: 0%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 1rem;
+    /* padding: 1rem; */
     background-color: #0e0f12;
-    width: 90vw;
+    width: 100vw;
+    gap: 55vw;
+    padding-top: 1.8vh;
+    padding-bottom: 1.5vh;
+
 }
 
 nav .menu-items{
@@ -17,7 +21,7 @@ nav .menu-items{
 }
 nav .logo{
     padding-top: 10px;
-    padding-left: 30px;
+    padding-left: 18px;
 }
 
 nav .menu-items a{
