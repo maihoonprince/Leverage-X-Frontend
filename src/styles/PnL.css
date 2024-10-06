@@ -123,7 +123,7 @@ Section */
 }
 
 /* Withdrawal Popup */
-.overlay {
+/* .overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -134,7 +134,7 @@ Section */
   justify-content: center;
   align-items: center;
   z-index: 1000;
-}
+} */
 
 /* .popup {
   background-color: #33333300;
@@ -146,7 +146,7 @@ Section */
   text-align: center;
 } */
 
-.popup h3 {
+/* .popup h3 {
   border:1px solid #fff;
   font-size: 22px;
   color: #333;
@@ -203,7 +203,24 @@ Section */
 
 .loss-value {
   color: red;
+} */
+
+.moving-pnl {
+  font-size: 16px;
+  font-weight: bold;
 }
+
+/* When the value is positive or zero */
+.positive {
+  color: green;
+}
+
+/* When the value is negative */
+.negative {
+  color: red;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -271,5 +288,182 @@ Section */
 
   .aval-balance {
     color: #fff;
+  }
+
+  .position-window{
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .Profit-Loss{
+    background-color: #0e0f12;
+    width: 60%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* box-shadow: 5px 5px #27ae5f50; */
+    box-shadow: 0 0px 16px rgb(176, 188, 176);
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  }
+
+  .total-name{
+    color: #fff;
+    margin-bottom: 0;
+    letter-spacing: 0.1rem;
+    
+  }
+
+  .moving-pnl{
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 600;
+  } 
+
+  .moving-pnl {
+    font-size: 19px;
+    font-weight: bold;
+  }
+  
+  /* When the value is positive or zero */
+  .positive {
+    color: green;
+  }
+  
+  /* When the value is negative */
+  .negative {
+    color: rgb(187, 48, 48);
+  }
+  
+  .sec-box{
+    background-color: #0e0f12;
+    
+  }
+
+  .sec-box p{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 5px;
+    color: rgb(203, 201, 201);
+  }
+
+  /* .sec-box p span{
+    padding-left: 80px;
+  } */
+
+  .stockName{
+    margin-left: 100px;
+    font-size: 18px;
+  }
+
+  .qunty{
+    padding-left: 260px;
+  }
+
+  .buyPrice{
+    padding-left: 200px;
+  }
+
+  .curr-price{
+    padding-left: 230px;
+  }
+
+  .invst-amt{
+    padding-left: 154px;
+  }
+
+  .positions-head{
+    padding-top: 8%;
+    padding-bottom: 5%;
+  }
+
+  .balance-folder {
+    margin-top: 15px;
+    width: 80%; /* Adjusts width to be responsive */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .leverage-balance {
+    background-color: #cfd1d4c4;
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 340px; /* Adjust as needed */
+    width: 100%; /* Makes it responsive */
+    height: auto; /* Ensures it adjusts based on content */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
+  }
+  
+  .company1 {
+    margin-bottom: 10px;
+  }
+  
+  .company-name {
+    font-size: 18px; /* Increased font size slightly */
+    color: #333;
+    margin-bottom: 2px;
+    font-weight: bold;
+    display: flex;
+    padding-left: 12px;
+    font-style: italic;
+  }
+  
+  .company-name span {
+    color: #28b328;
+    font-size: 22px;
+  }
+  
+  .forex-trade {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  
+  .balance {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 15px 15px; /* Adjusted padding for better spacing */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: relative; */
+    min-height: 40px; /* To ensure minimum height */
+  }
+  
+  .balance span {
+    font-size: 14px;
+    color: #c7c7c7;
+  }
+  
+  .balance p {
+    font-size: 28px;
+    margin: 0;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .balance::after {
+    content: "→";
+    /* position: absolute; */
+    right: 75px;
+    font-size: 18px;
+    color: white;
+  }
+
+  .balance-updt{
+    margin-left: 18%;
   }
 }

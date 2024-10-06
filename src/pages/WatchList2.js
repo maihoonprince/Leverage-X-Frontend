@@ -188,7 +188,7 @@ const WatchList1 = () => {
           <div className="purchage-cancel">
 
             <button onClick={handleBuy} disabled={quantity === 0}>
-              Confirm Purchase
+              Confirm
             </button>
 
             <button onClick={() => setShowPopup(false)}>Cancel</button>

@@ -219,7 +219,7 @@
   height: 50%;
   background-color: #444545; /* Semi-transparent background */
   display: flex;
-  border-radius: 10px;
+  /* border: 2px solid black; */
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
@@ -234,7 +234,7 @@
   margin-bottom: 50px;
   margin-top: 25px;
   background-color: #a2a3a7;
-  /* border: 1px solid #edeaea; */
+  border: 1px solid #edeaea;
   border-radius: 10px;
   color: #0e0f12;
   padding: 10px 15px;

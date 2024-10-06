@@ -141,7 +141,7 @@ function Plans() {
                         <img src={qrcode} alt="QR Code" className="qr-image" />
                         <p className='qr-p qr-pq'>leveragexfund@okhdfcbank</p>
                         <img src={upiImg} alt="upi-logo" className='upi-img' />
-                        <input placeholder='Enter Phone No.' type="number" className="input-num" required />
+                        <input placeholder='Enter Txn Number' type="number" className="input-num" required />
                         <div className="popup-actions">
                             <button className="done-btn done-bttn" onClick={handlePayment}>Done</button>
                             <button className="cancel-btn" onClick={() => setShowPopup(false)}>X</button>
