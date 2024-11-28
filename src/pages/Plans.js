@@ -27,7 +27,7 @@ function Plans() {
 
         const fetchUserPlanStatus = async () => {
             try {
-                const response = await axios.get(`https://leverage-x-backend-1.onrender.com/api/plans/user-plan/${userId}`);
+                const response = await axios.get(`https://leverage-x-backend.vercel.app/api/plans/user-plan/${userId}`);
                 if (response.data) {
                     setHasBoughtRapid(response.data.hasBoughtRapidPlan);  // Set Rapid plan status
                     setCurrentPlan(response.data.plan);  // Set current plan
@@ -52,7 +52,7 @@ function Plans() {
     const handlePayment = async () => {
         try {
             const userId = localStorage.getItem('userId');
-            const response = await axios.post('https://leverage-x-backend-1.onrender.com/api/plans/purchase', { userId, plan: selectedPlan });
+            const response = await axios.post('https://leverage-x-backend.vercel.app/api/plans/purchase', { userId, plan: selectedPlan });
 
             if (response.status === 200) {
                 handleSuccess(response.data.msg);
