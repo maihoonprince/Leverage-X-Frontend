@@ -20,7 +20,7 @@ const PnL = () => {
   const fetchUserStocks = async () => {
     try {
       const response = await axios.get(
-        `https://leverage-x-backend-1.onrender.com/api/users/stocks/${userId}`
+        `https://leverage-x-backend.vercel.app/api/users/stocks/${userId}`
       );
       setStocks(response.data.stocks);
       setUserBalance(response.data.balance);
@@ -36,7 +36,7 @@ const PnL = () => {
       const watchlistType =
         storedWatchlistType || location.state?.watchlistType || "1"; // Default to WatchList1 if none is found
       const response = await axios.get(
-        `https://leverage-x-backend-1.onrender.com/api/watchlist${watchlistType}`
+        `https://leverage-x-backend.vercel.app/api/watchlist${watchlistType}`
       );
       setUpdatedStocks(response.data);
     } catch (error) {
@@ -64,7 +64,7 @@ const PnL = () => {
         localStorage.getItem("watchlistType") ||
         "1";
       const response = await axios.post(
-        "https://leverage-x-backend-1.onrender.com/api/users/sell",
+        "https://leverage-x-backend.vercel.app/api/users/sell",
         {
           userId,
           stockName,
