@@ -36,7 +36,7 @@ function Signup() {
         }
 
         try {
-            const url = `https://leverage-x-backend-1.onrender.com/auth/signup`;
+            const url = `https://leverage-x-backend.vercel.app/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
