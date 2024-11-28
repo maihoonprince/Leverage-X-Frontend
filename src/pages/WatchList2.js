@@ -31,7 +31,7 @@ const WatchList1 = () => {
   const fetchStocks = async () => {
     try {
       const response = await axios.get(
-        "https://leverage-x-backend-1.onrender.com/api/watchlist2"
+        "https://leverage-x-backend.vercel.app/api/watchlist2"
       );
       setStocks(response.data);
     } catch (error) {
@@ -44,7 +44,7 @@ const WatchList1 = () => {
 
     try {
       const response = await axios.get(
-        `https://leverage-x-backend-1.onrender.com/api/users/balance/${userId}`
+        `https://leverage-x-backend.vercel.app/api/users/balance/${userId}`
       );
       setCurrentBalance(response.data.balance);
       setUpdatedBalance(response.data.balance);
@@ -89,7 +89,7 @@ const WatchList1 = () => {
 
     try {
       const response = await axios.post(
-        "https://leverage-x-backend-1.onrender.com/api/watchlist2/buy",
+        "https://leverage-x-backend.vercel.app/api/watchlist2/buy",
         {
           stockName: selectedOption.name,
           userId: userId,
